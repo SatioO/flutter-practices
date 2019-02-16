@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/home/home.dart';
 
-void main() => runApp(MyWidget());
+void main() => runApp(App());
 
-class MyWidget extends StatelessWidget {
+class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        'Hello, world!',
-        textDirection: TextDirection.ltr,
-      ),
+    return new MaterialApp(
+      title: "Youtube",
+      home: new MyHome(),
     );
   }
 }
