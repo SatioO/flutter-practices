@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/home/home.dart';
+import 'package:myapp/widgets/statefull/home/home.dart';
 
 void main() => runApp(App());
 
@@ -8,7 +8,11 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return new MaterialApp(
       title: "Youtube",
+      theme: new ThemeData(
+        primarySwatch: Colors.blue,
+      ),
       home: new MyHome(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

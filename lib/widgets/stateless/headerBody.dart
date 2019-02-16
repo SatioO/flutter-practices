@@ -8,9 +8,7 @@ class HeaderBody extends StatelessWidget {
         children: <Widget>[
           ListView.builder(
             itemCount: 3,
-            itemBuilder: (BuildContext context, int index) {
-              return Column(children: <Widget>[]);
-            },
+            itemBuilder: (BuildContext context, int index) {},
           )
         ],
       ),
