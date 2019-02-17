@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class Header extends StatefulWidget {
-  Header({Key key, this.title}) : super(key: key);
+class HeaderTitle extends StatelessWidget {
+  HeaderTitle(this.title);
 
   final String title;
 
-  @override
-  HeaderTitle createState() => new HeaderTitle();
-}
-
-class HeaderTitle extends State<Header> {
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -22,7 +17,7 @@ class HeaderTitle extends State<Header> {
         Padding(
           padding: const EdgeInsets.only(left: 8.0),
           child: Text(
-            widget.title,
+            title,
             style: TextStyle(
                 color: Colors.black,
                 letterSpacing: -1.0,
