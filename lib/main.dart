@@ -11,7 +11,7 @@ class App extends StatelessWidget {
       theme: new ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: new MyHome(),
+      home: MyHome(),
       debugShowCheckedModeBanner: false,
     );
   }
