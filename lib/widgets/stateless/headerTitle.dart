@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Header extends StatefulWidget {
-  Header({this.title});
+  Header({Key key, this.title}) : super(key: key);
 
   final String title;
 

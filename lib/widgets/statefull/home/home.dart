@@ -26,7 +26,7 @@ class _MyHomePageState extends State<MyHome> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,
-          title: Header(title: "Youtube"),
+          title: new Header(title: "Youtube"),
           actions: <Widget>[
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12.0),
