@@ -3,6 +3,7 @@ import 'package:myapp/models/video.dart';
 import 'package:myapp/widgets/stateless/bottomNavigator.dart';
 import 'package:myapp/widgets/stateless/headerBody.dart';
 import 'package:myapp/widgets/stateless/headerTitle.dart';
+import 'package:myapp/widgets/stateless/navigationIcon.dart';
 
 class MyHome extends StatefulWidget {
   @override
@@ -26,29 +27,11 @@ class _MyHomePageState extends State<MyHome> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,
-          title: new Header(title: "Youtube"),
+          title: HeaderTitle("Accion Labs"),
           actions: <Widget>[
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12.0),
-              child: Icon(
-                Icons.videocam,
-                color: Colors.black54,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12.0),
-              child: Icon(
-                Icons.search,
-                color: Colors.black54,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12.0),
-              child: Icon(
-                Icons.account_circle,
-                color: Colors.black54,
-              ),
-            ),
+            NavigationIcons(icon: Icons.videocam),
+            NavigationIcons(icon: Icons.search),
+            NavigationIcons(icon: Icons.account_circle),
           ],
         ),
         body: HeaderBody(),
