@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/widgets/stateful/home/home.dart';
+import 'package:myapp/widgets/stateful/books/books.dart';
+import 'package:myapp/widgets/stateful/posts/posts.dart';
 
 void main() => runApp(App());
 
@@ -11,7 +12,8 @@ class App extends StatelessWidget {
       theme: new ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHome(),
+      initialRoute: "/",
+      routes: {"/": (context) => Posts(), "/books": (context) => Books()},
       debugShowCheckedModeBanner: false,
     );
   }

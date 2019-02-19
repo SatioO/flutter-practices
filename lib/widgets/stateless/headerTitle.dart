@@ -11,7 +11,7 @@ class HeaderTitle extends StatelessWidget {
     return Row(
       children: <Widget>[
         Icon(
-          FontAwesomeIcons.youtube,
+          FontAwesomeIcons.globeAmericas,
           color: Colors.red,
         ),
         Padding(
