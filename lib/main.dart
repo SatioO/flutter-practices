@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/widgets/statefull/home/home.dart';
+import 'package:myapp/widgets/stateful/home/home.dart';
 
 void main() => runApp(App());
 
