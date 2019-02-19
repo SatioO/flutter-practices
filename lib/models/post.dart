@@ -1,3 +1,10 @@
+import 'dart:convert';
+
+List<Post> parsePosts(String responseBody) {
+  final parsed = json.decode(responseBody).cast<Map<String, dynamic>>();
+  return parsed.map<Post>((json) => Post.fromJson(json)).toList();
+}
+
 class Post {
   final int userId;
   final int id;
