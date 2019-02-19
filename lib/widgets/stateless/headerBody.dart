@@ -17,7 +17,7 @@ class HeaderBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       padding: const EdgeInsets.all(16.0),
-      itemCount: 3,
+      itemCount: videos.length,
       itemBuilder: (BuildContext context, int index) {
         return new ListTile(
           leading: Icon(Icons.video_label),
