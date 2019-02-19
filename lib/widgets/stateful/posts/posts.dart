@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'package:myapp/models/post.dart';
+import 'package:myapp/widgets/stateless/navigationIcon.dart';
 import 'package:myapp/widgets/stateless/postList.dart';
 import 'package:myapp/widgets/stateless/headerTitle.dart';
-import 'package:myapp/widgets/stateless/navigationIcon.dart';
 
 class Posts extends StatelessWidget {
   @override
@@ -13,7 +13,12 @@ class Posts extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,
-          title: HeaderTitle("Accion"),
+          actions: <Widget>[
+            NavigationIcons(
+              icon: Icons.videocam,
+            )
+          ],
+          title: HeaderTitle("AccionLabs"),
         ),
         body: Body());
   }

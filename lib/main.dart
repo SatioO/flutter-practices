@@ -9,9 +9,6 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return new MaterialApp(
       title: "Youtube",
-      theme: new ThemeData(
-        primarySwatch: Colors.blue,
-      ),
       initialRoute: "/",
       routes: {"/": (context) => Posts(), "/books": (context) => Books()},
       debugShowCheckedModeBanner: false,
