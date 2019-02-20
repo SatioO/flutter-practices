@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/widgets/stateful/books/books.dart';
-import 'package:myapp/widgets/stateful/posts/posts.dart';
+import "package:myapp/routes.dart";
 
 void main() => runApp(App());
 
@@ -10,7 +9,7 @@ class App extends StatelessWidget {
     return new MaterialApp(
       title: "Youtube",
       initialRoute: "/",
-      routes: {"/": (context) => Posts(), "/books": (context) => Books()},
+      routes: routes,
       debugShowCheckedModeBanner: false,
     );
   }

@@ -45,10 +45,7 @@ class BodyState extends State<Body> {
   Future<List<Post>> post;
 
   @override
-  void initState() {
-    super.initState();
-    post = fetchPost();
-  }
+  void initState() => super.initState();
 
   @override
   Widget build(BuildContext context) {
