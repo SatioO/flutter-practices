@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/widgets/stateless/square.dart';
 
 class BackgroundPaint extends CustomPainter {
   @override
@@ -14,11 +15,12 @@ class BackgroundPaint extends CustomPainter {
     canvas.drawPath(background, paint);
 
     Path shape = Path();
-    // Start from x -> 0%, to y -> 90% --> (0, 10)
+    // Start from x -> 0%, to y -> 90% --> (0, 9)
     shape.moveTo(0.0, height * 0.10); // left, top
     // start from x -> 50% to y -> 50% --> (5, 5)
-    shape.quadraticBezierTo(width * 0.50, height * 0.25, width * 0.5,
-        height * 0.5); // x -> 0% , y - 0% --> (10, 0)
+    shape.quadraticBezierTo(
+        width * 0.50, height * 0.25, width * 0.5, height * 0.5);
+    // x -> 0% , y - 0% --> (10, 0)
     shape.quadraticBezierTo(width * 0.5, height * 0.8, width, height);
     shape.lineTo(0, height);
     paint.color = Colors.blue;
@@ -34,8 +36,17 @@ class BackgroundPaint extends CustomPainter {
 class PaintExperiment extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return CustomPaint(
-      painter: BackgroundPaint(),
-    );
+    return Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => print("hello"),
+        ),
+        body: CustomPaint(
+          painter: BackgroundPaint(),
+          child: Center(
+              child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[],
+          )),
+        ));
   }
 }
