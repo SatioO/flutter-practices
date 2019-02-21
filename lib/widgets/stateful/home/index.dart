@@ -7,6 +7,7 @@ class FullWidthBox extends StatelessWidget {
     return Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
+        color: Colors.indigo,
         child: Icon(Icons.developer_mode));
   }
 }
