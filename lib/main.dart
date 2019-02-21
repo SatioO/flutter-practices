@@ -9,7 +9,7 @@ class App extends StatelessWidget {
     return new MaterialApp(
       title: "Youtube",
       // showPerformanceOverlay: true,
-      debugShowMaterialGrid: true,
+      // debugShowMaterialGrid: true,
       initialRoute: "/",
       routes: routes,
       debugShowCheckedModeBanner: false,
