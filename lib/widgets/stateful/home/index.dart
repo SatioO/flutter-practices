@@ -12,6 +12,17 @@ class FullWidthBox extends StatelessWidget {
   }
 }
 
+class PositonedBox extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        width: 100.0,
+        height: 100.0,
+        color: Colors.indigo,
+        child: Icon(Icons.developer_mode));
+  }
+}
+
 class Home extends StatefulWidget {
   @override
   HomeState createState() => new HomeState();
@@ -25,8 +36,8 @@ class HomeState extends State<Home> {
             // margin: EdgeInsets.all(30),
             // alignment: Alignment.center,
             // width: 700,
-            decoration: BoxDecoration(
-                border: Border.all(color: Colors.blue, width: 8.0)),
+            // decoration: BoxDecoration(
+            //     border: Border.all(color: Colors.blue, width: 8.0)),
             // child: Column(
             //   // mainAxisAlignment: MainAxisAlignment.spaceBetween, //flex-flow
             //   // // mainAxisSize: MainAxisSize.max,
@@ -39,6 +50,9 @@ class HomeState extends State<Home> {
             //     Expanded(flex: 1, child: Square(color: Colors.indigo)) //flex-grow
             //   ],
             // )),
-            child: FullWidthBox()));
+            child: Positioned(
+      bottom: 100.0,
+      child: PositonedBox(),
+    )));
   }
 }
