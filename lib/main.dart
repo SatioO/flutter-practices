@@ -8,6 +8,8 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return new MaterialApp(
       title: "Youtube",
+      // showPerformanceOverlay: true,
+      debugShowMaterialGrid: true,
       initialRoute: "/",
       routes: routes,
       debugShowCheckedModeBanner: false,
