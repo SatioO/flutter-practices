@@ -25,6 +25,7 @@ class _MasterFlowState extends State<MasterFlow> {
   second() async {
     try {
       final response = await getData();
+      print(response);
     } catch (err) {
       print("Error: $err");
     }
@@ -35,19 +36,35 @@ class _MasterFlowState extends State<MasterFlow> {
     return Future.error("1"); // Promise.reject(1)
   }
 
+  _onIncrement() {
+    setState(() {
+      _counter = _counter + 1;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return ChildFlow(_counter);
+    return ChildFlow(_counter, _onIncrement);
   }
 }
 
 class ChildFlow extends StatelessWidget {
-  final int _counter;
+  final int counter;
+  final onIncrement;
 
-  ChildFlow(this._counter);
+  ChildFlow(this.counter, this.onIncrement);
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Center(
+        child: Column(
+      children: <Widget>[
+        Text("Counter: $counter"),
+        RaisedButton(
+          child: Text("Increment"),
+          onPressed: () => this.onIncrement(),
+        )
+      ],
+    ));
   }
 }
