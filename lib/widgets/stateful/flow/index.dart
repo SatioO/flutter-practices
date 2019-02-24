@@ -44,7 +44,7 @@ class _MasterFlowState extends State<MasterFlow> {
 
   @override
   Widget build(BuildContext context) {
-    return ChildFlow(_counter, _onIncrement);
+    return ChildFlow(counter: _counter, onIncrement: _onIncrement);
   }
 }
 
@@ -52,7 +52,7 @@ class ChildFlow extends StatelessWidget {
   final int counter;
   final onIncrement;
 
-  ChildFlow(this.counter, this.onIncrement);
+  ChildFlow({Key key, this.counter, this.onIncrement}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
