@@ -21,7 +21,18 @@ class _MyAppState extends State<Fetch> {
     final response =
         await http.get("https://jsonplaceholder.typicode.com/photos");
 
-    final books = json.decode(response.body).cast<Map<String, dynamic>>();
+    final books = json.decode(response.body);
+
+    List<Book> result = [];
+
+    for (var book in books) {
+      result.add(Book(
+          id: book["id"],
+          title: book["title"],
+          thumbnailUrl: book["thumbnailUrl"]));
+    }
+
+    return result;
   }
 
   @override
@@ -37,7 +48,12 @@ class _MyAppState extends State<Fetch> {
                 return ListView.builder(
                   itemCount: snapshot.data.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return ListTile(title: Text(snapshot.data[index].name));
+                    return ListTile(
+                      title: Text(snapshot.data[index].title),
+                      leading: CircleAvatar(
+                        child: Image.network(snapshot.data[index].thumbnailUrl),
+                      ),
+                    );
                   },
                 );
               } else {
