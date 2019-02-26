@@ -3,6 +3,8 @@ import "package:http/http.dart" as http;
 import "dart:async";
 import "dart:convert";
 
+import 'package:myapp/widgets/stateful/paint/paint.dart';
+
 class Book {
   int id;
   String title;
@@ -41,24 +43,27 @@ class _MyAppState extends State<Fetch> {
         appBar: AppBar(
           title: Text('Fetch Example'),
         ),
-        body: FutureBuilder(
-            future: _getBooks(),
-            builder: (BuildContext builder, AsyncSnapshot snapshot) {
-              if (snapshot.hasData) {
-                return ListView.builder(
-                  itemCount: snapshot.data.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return ListTile(
-                      title: Text(snapshot.data[index].title),
-                      leading: CircleAvatar(
-                        child: Image.network(snapshot.data[index].thumbnailUrl),
-                      ),
+        body: CustomPaint(
+            painter: BackgroundPaint(Colors.black12),
+            child: FutureBuilder(
+                future: _getBooks(),
+                builder: (BuildContext builder, AsyncSnapshot snapshot) {
+                  if (snapshot.hasData) {
+                    return ListView.builder(
+                      itemCount: snapshot.data.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return ListTile(
+                          title: Text(snapshot.data[index].title),
+                          leading: CircleAvatar(
+                            child: Image.network(
+                                snapshot.data[index].thumbnailUrl),
+                          ),
+                        );
+                      },
                     );
-                  },
-                );
-              } else {
-                return Center(child: CircularProgressIndicator());
-              }
-            }));
+                  } else {
+                    return Center(child: CircularProgressIndicator());
+                  }
+                })));
   }
 }
