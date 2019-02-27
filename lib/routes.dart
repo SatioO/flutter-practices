@@ -1,5 +1,6 @@
 import 'package:myapp/widgets/stateful/animation/index.dart';
 import 'package:myapp/widgets/stateful/books/books.dart';
+import 'package:myapp/widgets/stateful/easein/index.dart';
 import 'package:myapp/widgets/stateful/fetch/index.dart';
 import 'package:myapp/widgets/stateful/flow/index.dart';
 import 'package:myapp/widgets/stateful/loader/index.dart';
@@ -8,7 +9,8 @@ import 'package:myapp/widgets/stateful/posts/posts.dart';
 import "package:myapp/widgets/stateful/home/index.dart";
 
 var routes = {
-  "/": (context) => AnimatedCard(),
+  "/": (context) => EaseInAnimation(),
+  "/animatedcard": (context) => AnimatedCard(),
   "/loader": (context) => Loader(),
   "/fetch": (context) => Fetch(),
   "/flow": (context) => MasterFlow(),
