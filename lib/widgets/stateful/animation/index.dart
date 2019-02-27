@@ -26,6 +26,14 @@ class _AnimatedCardState extends State<AnimatedCard>
       setState(() {});
     });
 
+    controller.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        controller.reverse();
+      } else if (status == AnimationStatus.dismissed) {
+        controller.forward();
+      }
+    });
+
     controller.forward();
   }
 
@@ -36,9 +44,10 @@ class _AnimatedCardState extends State<AnimatedCard>
       opacity: animation.value,
       child: Center(
           child: Container(
-              width: animation.value * 1000,
-              height: animation.value * 1000,
-              color: Colors.blue)),
+        width: animation.value * 75,
+        height: animation.value * 75,
+        decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.blue),
+      )),
     ));
   }
 }

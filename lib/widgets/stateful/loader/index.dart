@@ -46,7 +46,7 @@ class _LoaderState extends State<Loader> with SingleTickerProviderStateMixin {
                 Transform.translate(
                   offset: Offset(
                       radius * cos(3 * pi / 4), radius * sin(3 * pi / 4)),
-                  child: Dot(radius: 10.0, color: Colors.cyan),
+                  child: Dot(radius: 10.0, color: Colors.red),
                 ),
                 Transform.translate(
                   offset: Offset(
