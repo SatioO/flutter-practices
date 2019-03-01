@@ -20,15 +20,13 @@ class _BoardState extends State<Board> {
     final double height = MediaQuery.of(context).size.height - 100;
 
     return Container(
-        width: width,
-        height: height,
-        color: const Color(0xFFFFFFFF),
-        child: GestureDetector(
-          behavior: HitTestBehavior.opaque,
+      width: width,
+      height: height,
+      color: const Color(0xFFFFFFFF),
+      child: GestureDetector(
           onTap: _handleTap,
-          child: Scaffold(
-              body: Container(child: _getBoardChildBasedOnGameState())),
-        ));
+          child: Scaffold(body: _getBoardChildBasedOnGameState())),
+    );
   }
 
   _getBoardChildBasedOnGameState() {
@@ -37,10 +35,23 @@ class _BoardState extends State<Board> {
         return Splash();
 
       case GameState.RUNNING:
-        return Piece();
+        List<Positioned> points = [];
 
-      default:
-        return Container();
+        _snakePiecePositions.forEach((position) {
+          points.add(Positioned(
+            top: position.x * PIECE_SIZE,
+            left: position.y * PIECE_SIZE,
+            child: Piece(),
+          ));
+        });
+
+        return Stack(children: points);
+
+      case GameState.VICTORY:
+        break;
+
+      case GameState.FAILURE:
+        break;
     }
   }
 
