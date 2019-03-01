@@ -16,13 +16,16 @@ class _BoardState extends State<Board> {
 
   @override
   Widget build(BuildContext context) {
+    final double width = MediaQuery.of(context).size.width;
+    final double height = MediaQuery.of(context).size.height - 100;
+
     return Container(
-        width: BOARD_SIZE,
-        height: BOARD_SIZE,
+        width: width,
+        height: height,
         color: const Color(0xFFFFFFFF),
         child: GestureDetector(
           onTap: _handleTap,
-          child: _getBoardChildBasedOnGameState(),
+          child: Scaffold(body: _getBoardChildBasedOnGameState()),
         ));
   }
 
