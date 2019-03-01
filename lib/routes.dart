@@ -1,3 +1,4 @@
+import 'package:myapp/snake/main.dart';
 import 'package:myapp/widgets/stateful/animation/index.dart';
 import 'package:myapp/widgets/stateful/books/books.dart';
 import 'package:myapp/widgets/stateful/easein/index.dart';
@@ -9,7 +10,8 @@ import 'package:myapp/widgets/stateful/posts/posts.dart';
 import "package:myapp/widgets/stateful/home/index.dart";
 
 var routes = {
-  "/": (context) => EaseInAnimation(),
+  "/": (context) => Snake(),
+  "/ease": (context) => EaseInAnimation(),
   "/animatedcard": (context) => AnimatedCard(),
   "/loader": (context) => Loader(),
   "/fetch": (context) => Fetch(),

@@ -1,0 +1,2 @@
+const BOARD_SIZE = 320.0;
+const TEXT_PADDING = 10.0;
