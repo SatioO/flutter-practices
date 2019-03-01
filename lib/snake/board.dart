@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/snake/constant.dart';
+import 'package:myapp/snake/piece.dart';
+import 'package:myapp/snake/point.dart';
 import 'package:myapp/snake/splash.dart';
 
 enum GameState { SPLASH, RUNNING, VICTORY, FAILURE }
@@ -10,15 +12,18 @@ class Board extends StatefulWidget {
 
 class _BoardState extends State<Board> {
   var _gameState = GameState.SPLASH;
+  var _snakePiecePositions;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: BOARD_SIZE,
-      height: BOARD_SIZE,
-      color: const Color(0xFFFFFFFF),
-      child: _getBoardChildBasedOnGameState(),
-    );
+        width: BOARD_SIZE,
+        height: BOARD_SIZE,
+        color: const Color(0xFFFFFFFF),
+        child: GestureDetector(
+          onTap: _handleTap,
+          child: _getBoardChildBasedOnGameState(),
+        ));
   }
 
   _getBoardChildBasedOnGameState() {
@@ -26,8 +31,52 @@ class _BoardState extends State<Board> {
       case GameState.SPLASH:
         return Splash();
 
+      case GameState.RUNNING:
+        return Piece();
+
       default:
         return Container();
+    }
+  }
+
+  _moveFromSplashToRunningState() {
+    _generateInitialSnakePosition();
+    _changeGameState(GameState.RUNNING);
+  }
+
+  _changeGameState(GameState gameState) {
+    setState(() {
+      _gameState = gameState;
+    });
+  }
+
+  _generateInitialSnakePosition() {
+    setState(() {
+      final midPoint = (BOARD_SIZE / PIECE_SIZE / 2);
+      _snakePiecePositions = [
+        Point(midPoint, midPoint - 2),
+        Point(midPoint, midPoint - 1),
+        Point(midPoint, midPoint),
+        Point(midPoint, midPoint + 1),
+        Point(midPoint, midPoint + 2),
+      ];
+    });
+  }
+
+  _handleTap() {
+    switch (_gameState) {
+      case GameState.SPLASH:
+        _moveFromSplashToRunningState();
+        break;
+      case GameState.RUNNING:
+        _moveFromSplashToRunningState();
+        break;
+      case GameState.VICTORY:
+        _moveFromSplashToRunningState();
+        break;
+      case GameState.FAILURE:
+        _moveFromSplashToRunningState();
+        break;
     }
   }
 }
