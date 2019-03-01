@@ -24,8 +24,10 @@ class _BoardState extends State<Board> {
         height: height,
         color: const Color(0xFFFFFFFF),
         child: GestureDetector(
+          behavior: HitTestBehavior.opaque,
           onTap: _handleTap,
-          child: Scaffold(body: _getBoardChildBasedOnGameState()),
+          child: Scaffold(
+              body: Container(child: _getBoardChildBasedOnGameState())),
         ));
   }
 
@@ -55,7 +57,7 @@ class _BoardState extends State<Board> {
 
   _generateInitialSnakePosition() {
     setState(() {
-      final midPoint = (BOARD_SIZE / PIECE_SIZE / 2);
+      final double midPoint = (BOARD_SIZE / PIECE_SIZE / 2);
       _snakePiecePositions = [
         Point(midPoint, midPoint - 2),
         Point(midPoint, midPoint - 1),
